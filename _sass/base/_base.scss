@@ -6,7 +6,32 @@
 @use '../themes/dark';
 
 :root {
-  font-size: 16px;
+  font-size: 20px;
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  src: url('/assets/fonts/NanumSquareNeo/TTF/NanumSquareNeo-bRg.woff2') format('woff2'),
+       url('/assets/fonts/NanumSquareNeo/TTF/NanumSquareNeo-bRg.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NanumBarunpen';
+  src: url('/assets/fonts/NanumBarunpen/NanumBarunpenR.woff2') format('woff2'),
+       url('/assets/fonts/NanumBarunpen/NanumBarunpenR.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NanumBarunpen';
+  src: url('/assets/fonts/NanumBarunpen/NanumBarunpenB.woff2') format('woff2'),
+       url('/assets/fonts/NanumBarunpen/NanumBarunpenB.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
 }
 
 html {
@@ -44,6 +69,7 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   font-family: v.$font-family-base;
+  letter-spacing: 0.03em;
 }
 
 h1.dynamic-title {
@@ -117,6 +143,7 @@ main {
 
 .post-meta {
   @extend %text-sm;
+  // font-family: 'NanumSquareNeo', sans-serif;
 
   a {
     &:not([class]):hover {
@@ -411,6 +438,13 @@ mjx-container {
 
 #mask {
   inset: 0 0 0 0;
+  background-color: var(--mask-bg);
+  opacity: 0.45;
+  transition: opacity 0.25s ease;
+  z-index: 1040;
+  @include bp.lg {
+    display: none !important;
+  }
 }
 
 #main-wrapper {
@@ -419,7 +453,7 @@ mjx-container {
   @include mx.pl-pr(0);
 
   @include bp.lt(bp.get(lg)) {
-    @include mx.slide;
+    transform: none !important;
   }
 
   @include bp.lg {

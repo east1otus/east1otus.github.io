@@ -29,6 +29,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
   }
 
   @include bp.lt(bp.get(lg)) {
+    z-index: 1050;
     @include mx.slide;
 
     transform: translateX(-#{v.$sidebar-width}); /* hide */
@@ -57,8 +58,8 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     display: block;
     width: 6.5rem;
     height: 6.5rem;
-    overflow: hidden;
-    box-shadow: var(--avatar-border-color) 0 0 0 2px;
+    overflow: visible;
+    box-shadow: none;
     transform: translateZ(0); /* fixed the zoom in Safari */
 
     @include bp.sm {

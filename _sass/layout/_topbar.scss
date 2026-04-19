@@ -82,5 +82,6 @@
 
   @include bp.lt(bp.get(lg)) {
     display: block;
+    z-index: 1060;
   }
 }
