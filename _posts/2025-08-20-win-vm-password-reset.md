@@ -1,5 +1,5 @@
 ---
-title: Windows VM 분실 시 비밀번호 재설정
+title: Windows VM 비밀번호 분실 시 재설정
 author: east1otus
 date: 2025-04-18 16:32:00 +0900
 categories: [Digital Forensics, Tips]
