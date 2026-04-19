@@ -44,7 +44,7 @@ qemu-img convert -p -f raw -O vmdk <input.001> <output.vmdk>
 ## 3. 디스크 교체
 1. VM 부팅하지 않은 상태에서, 생성한 VM 폴더로 이동
   <br><br>
-2. 원래 있던 vmdk를, 앞에서 직접 변환한 vmdk로 교체  
+2. 원래 있던 vmdk를 앞에서 직접 변환한 vmdk로 교체  
   ![test](/assets/img/2026-04-18-1/7.png){: width="400"}
   <br><br>
 3. 이제 VMware에서 VM을 실행하면 변환한 디스크 이미지로 부팅된다.
