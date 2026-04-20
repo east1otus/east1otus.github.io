@@ -1,6 +1,6 @@
 @mixin styles {
   /* Framework color */
-  --main-bg: white;
+  --main-bg: #f5f5f5;
   --mask-bg: #c1c3c5;
   --main-border-color: #f3f3f3;
 
@@ -8,7 +8,7 @@
   --text-color: #34343c;
   --text-muted-color: #757575;
   --text-muted-highlight-color: inherit;
-  --card-title-color: #3B78FF;
+  --card-title-color: #767676;
   --heading-color: #2a2a2a;
   --label-color: #585858;
   --blockquote-border-color: #eeeeee;
@@ -57,11 +57,10 @@
   --toc-highlight: #0550ae;
   --toc-popup-border-color: lightgray;
   --btn-share-color: gray;
-  --btn-share-hover-color: #0d6efd;
-  --card-bg: white;
+  --btn-share-hover-color: #3B78FF;
+  --card-bg: #f5f5f5;
   --card-hover-bg: #e2e2e2;
-  --card-shadow: rgb(104 104 104 / 5%) 0 2px 6px 0,
-    rgb(211 209 209 / 15%) 0 0 0 1px;
+  --card-shadow:;
   --footnote-target-bg: lightcyan;
   --tb-odd-bg: #fbfcfd;
   --tb-border-color: #eaeaea;
