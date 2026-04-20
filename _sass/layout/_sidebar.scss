@@ -30,6 +30,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
 
   @include bp.lt(bp.get(lg)) {
     z-index: 1050;
+
     @include mx.slide;
 
     transform: translateX(-#{v.$sidebar-width}); /* hide */

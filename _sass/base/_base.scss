@@ -10,7 +10,7 @@
 }
 
 @font-face {
-  font-family: 'NanumSquareNeo';
+  font-family: NanumSquareNeo;
   src: url('/assets/fonts/NanumSquareNeo/TTF/NanumSquareNeo-bRg.woff2') format('woff2'),
        url('/assets/fonts/NanumSquareNeo/TTF/NanumSquareNeo-bRg.woff') format('woff');
   font-weight: 400;
@@ -19,7 +19,7 @@
 }
 
 @font-face {
-  font-family: 'NanumBarunpen';
+  font-family: NanumBarunpen;
   src: url('/assets/fonts/NanumBarunpen/NanumBarunpenR.woff2') format('woff2'),
        url('/assets/fonts/NanumBarunpen/NanumBarunpenR.woff') format('woff');
   font-weight: 400;
@@ -27,7 +27,7 @@
 }
 
 @font-face {
-  font-family: 'NanumBarunpen';
+  font-family: NanumBarunpen;
   src: url('/assets/fonts/NanumBarunpen/NanumBarunpenB.woff2') format('woff2'),
        url('/assets/fonts/NanumBarunpen/NanumBarunpenB.woff') format('woff');
   font-weight: 700;
@@ -143,6 +143,7 @@ main {
 
 .post-meta {
   @extend %text-sm;
+
   // font-family: 'NanumSquareNeo', sans-serif;
 
   a {
@@ -442,6 +443,7 @@ mjx-container {
   opacity: 0.45;
   transition: opacity 0.25s ease;
   z-index: 1040;
+
   @include bp.lg {
     display: none !important;
   }
