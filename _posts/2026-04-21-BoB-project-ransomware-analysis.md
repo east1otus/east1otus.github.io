@@ -1,7 +1,7 @@
 ---
 title: BoB 14기 팀프로젝트 - 랜섬웨어 분석 보고서
 author: east1otus
-date: 2025-04-18 10:40:00 +0900
+date: 2026-04-21 10:40:00 +0900
 categories: [Digital Forensics, Tips]
 tags: [Tips]
 ---
