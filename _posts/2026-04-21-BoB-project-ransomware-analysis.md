@@ -1,9 +1,9 @@
 ---
 title: BoB 14기 팀프로젝트 - 랜섬웨어 분석 보고서
 author: east1otus
-date: 2026-04-21 10:40:00 +0900
-categories: [Digital Forensics, Tips]
-tags: [Tips]
+date: 2026-04-21 10:40 +0900
+categories: [Project, BoB]
+tags: [Project, BoB, Digital Forensics, Reversing, Malware Analysis, Ransomware]
 ---
 
 BoB 14기 디지털포렌식 트랙 팀프로젝트에서 수행한 랜섬웨어 분석 결과를 정리한 보고서이다.  
