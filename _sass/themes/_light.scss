@@ -1,19 +1,19 @@
 @mixin styles {
   /* Framework color */
-  --main-bg: #f5f5f5;
+  --main-bg: #FFFFFF;
   --mask-bg: #c1c3c5;
   --main-border-color: #f3f3f3;
 
   /* Common color */
-  --text-color: #34343c;
+  --text-color: #000000;
   --text-muted-color: #757575;
   --text-muted-highlight-color: inherit;
-  --card-title-color: #767676;
-  --heading-color: #2a2a2a;
+  --card-title-color: #1B262C;
+  --heading-color: #1B262C;
   --label-color: #585858;
   --blockquote-border-color: #eeeeee;
   --blockquote-text-color: #757575;
-  --link-color: rgb(58 150 221);
+  --link-color: #3A96DD;
   --link-underline-color: #dee2e6;
   --button-bg: #ffffff;
   --btn-border-color: #e9ecef;
@@ -30,22 +30,22 @@
   );
 
   /* Sidebar */
-  --site-title-color: rgb(113 113 113);
-  --site-subtitle-color: #717171;
-  --sidebar-bg: #f6f8fa;
-  --sidebar-border-color: #efefef;
-  --sidebar-muted-color: #545454;
-  --sidebar-active-color: #1d1d1d;
-  --sidebar-hover-bg: rgb(223 233 241 / 64%);
-  --sidebar-btn-bg: white;
-  --sidebar-btn-color: #8e8e8e;
+  --site-title-color: #1B262C;
+  --site-subtitle-color: #1B262C;
+  --sidebar-bg: #BBE1FA;
+  --sidebar-border-color: #BBE1FA;
+  --sidebar-muted-color: #555555;
+  --sidebar-active-color: #1B262C;
+  --sidebar-hover-bg: #DDEEFF;
+  --sidebar-btn-bg: #DDEEFF;
+  --sidebar-btn-color: #555555;
   --avatar-border-color: white;
 
   /* Topbar */
-  --topbar-bg: rgb(255 255 255 / 70%);
-  --topbar-text-color: rgb(78 78 78);
-  --search-border-color: rgb(240 240 240);
-  --search-icon-color: #c2c6cc;
+  --topbar-bg: var(--main-bg);
+  --topbar-text-color: #0F4C75;
+  --search-border-color: #0F4C75);
+  --search-icon-color: #1B262C;
   --input-focus-border-color: #b8b8b8;
 
   /* Home page */
@@ -58,7 +58,7 @@
   --toc-popup-border-color: lightgray;
   --btn-share-color: gray;
   --btn-share-hover-color: #3B78FF;
-  --card-bg: #f5f5f5;
+  --card-bg: var(--main-bg);
   --card-hover-bg: #e2e2e2;
   --card-shadow:;
   --footnote-target-bg: lightcyan;
@@ -99,7 +99,7 @@
   --highlight-bg-color: #f6f8fa;
   --highlighter-rouge-color: #3f596f;
   --highlight-lineno-color: #9e9e9e;
-  --inline-code-bg: rgb(25 25 28 / 5%);
+  --inline-code-bg: #767676;
   --code-color: #3a3a3a;
   --code-header-text-color: #a3a3a3;
   --code-header-muted-color: #e5e5e5;

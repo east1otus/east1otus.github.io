@@ -2,20 +2,20 @@
   color-scheme: dark;
 
   /* Framework color */
-  --main-bg: rgb(12 12 12);
+  --main-bg: #111111;
   --mask-bg: rgb(68 69 70);
   --main-border-color: rgb(44 45 45);
 
   /* Common color */
-  --text-color: rgb(175 176 177);
+  --text-color: #F2F2F2;
   --text-muted-color: #868686;
   --text-muted-highlight-color: #aeaeae;
   --card-title-color: #F2F2F2;
-  --heading-color: #cccccc;
+  --heading-color: #F2F2F2;
   --label-color: #a7a7a7;
   --blockquote-border-color: rgb(66 66 66);
-  --blockquote-text-color: #868686;
-  --link-color: rgb(58 150 221);
+  --blockquote-text-color: #CCCCCC;
+  --link-color: #3A96DD;
   --link-underline-color: rgb(82 108 150);
   --button-bg: #1e1e1e;
   --btn-border-color: #2e2f31;
@@ -66,7 +66,7 @@
   --footnote-target-bg: rgb(63 81 181);
   --btn-share-color: #6c757d;
   --btn-share-hover-color: #bfc1ca;
-  --card-bg: #0C0C0C;
+  --card-bg: var(--main-bg);
   --card-hover-bg: #464d51;
   --card-shadow:;
   --kbd-wrap-color: #6a6a6a;
