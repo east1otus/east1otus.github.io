@@ -6,7 +6,7 @@
 @use '../themes/dark';
 
 :root {
-  font-size: 16px;
+  font-size: 17px;
 }
 
 @font-face {
@@ -31,6 +31,54 @@
   src: url('/assets/fonts/NanumBarunpen/NanumBarunpenB.woff2') format('woff2'),
        url('/assets/fonts/NanumBarunpen/NanumBarunpenB.woff') format('woff');
   font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Hakgyoansim Geurimilgi;
+  src: url('/assets/fonts/Hakgyoansim Geurimilgi/Hakgyoansim Geurimilgi TTF R.woff2') format('woff2'),
+       url('/assets/fonts/Hakgyoansim Geurimilgi/Hakgyoansim Geurimilgi TTF R.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Hakgyoansim Badasseugi;
+  src: url('/assets/fonts/Hakgyoansim Badasseugi/Hakgyoansim Badasseugi TTF B.woff2') format('woff2'),
+       url('/assets/fonts/Hakgyoansim Badasseugi/Hakgyoansim Badasseugi TTF B.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Hakgyoansim Badasseugi;
+  src: url('/assets/fonts/Hakgyoansim Badasseugi/Hakgyoansim Badasseugi TTF L.woff2') format('woff2'),
+       url('/assets/fonts/Hakgyoansim Badasseugi/Hakgyoansim Badasseugi TTF L.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: KimjungchulGothic;
+//   src: url('/assets/fonts/KimjungchulGothic/KimjungchulGothic-Bold.woff2') format('woff2'),
+//        url('/assets/fonts/KimjungchulGothic/KimjungchulGothic-Bold.woff') format('woff');
+//   font-weight: 700;
+//   font-style: normal;
+// }
+
+@font-face {
+  font-family: KimjungchulGothic;
+  src: url('/assets/fonts/KimjungchulGothic/KimjungchulGothic-Regular.woff2') format('woff2'),
+       url('/assets/fonts/KimjungchulGothic/KimjungchulGothic-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: KimjungchulGothic;
+  src: url('/assets/fonts/KimjungchulGothic/KimjungchulGothic-Light.woff2') format('woff2'),
+       url('/assets/fonts/KimjungchulGothic/KimjungchulGothic-Light.woff') format('woff');
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -69,7 +117,7 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   font-family: v.$font-family-base;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
 }
 
 h1.dynamic-title {
@@ -158,12 +206,13 @@ main {
 }
 
 .content {
-  font-size: 1.08rem;
+  font-size: 1.2rem;
   margin-top: 2rem;
   overflow-wrap: break-word;
+  font-weight: 300;
 
   @include bp.xl {
-    font-size: 1.03rem;
+    font-size: 1.2rem;
   }
 
   a {
