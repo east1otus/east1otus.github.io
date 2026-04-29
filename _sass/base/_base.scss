@@ -82,6 +82,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: Monaco;
+  src: url('/assets/fonts/Monaco/Monaco-MalgunGothic.woff2') format('woff2'),
+       url('/assets/fonts/Monaco/Monaco-MalgunGothic.ttf') format('ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
 html {
   @media (prefers-color-scheme: light) {
     &:not([data-mode]),

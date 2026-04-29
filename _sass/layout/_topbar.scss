@@ -85,3 +85,17 @@
     z-index: 1060;
   }
 }
+
+#topbar-actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+#topbar #mode-toggle {
+  order: 1;
+}
+
+#topbar #search-trigger {
+  order: 2;
+}

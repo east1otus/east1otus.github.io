@@ -61,6 +61,7 @@ code {
   -ms-hyphens: none;
   hyphens: none;
   color: var(--code-color);
+  font-family: 'Monaco', 'Consolas', monospace;
 
   &.highlighter-rouge {
     font-size: v.$code-font-size;
