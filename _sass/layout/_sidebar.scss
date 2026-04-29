@@ -233,21 +233,21 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     //   @extend %sidebar-link-hover;
     // }
 
-    .icon-border {
-      @extend %no-cursor;
-      @include mx.ml-mr(calc((v.$sb-btn-gap - $btn-border-width) / 2));
+    // .icon-border {
+    //   @extend %no-cursor;
+    //   @include mx.ml-mr(calc((v.$sb-btn-gap - $btn-border-width) / 2));
 
-      background-color: var(--sidebar-btn-color);
-      content: '';
-      width: $btn-border-width;
-      height: $btn-border-width;
-      border-radius: 50%;
-      margin-bottom: $btn-mb;
+    //   background-color: var(--sidebar-btn-color);
+    //   content: '';
+    //   width: $btn-border-width;
+    //   height: $btn-border-width;
+    //   border-radius: 50%;
+    //   margin-bottom: $btn-mb;
 
-      @include bp.xxxl {
-        @include mx.ml-mr(calc((v.$sb-btn-gap-lg - $btn-border-width) / 2));
-      }
-    }
+    //   @include bp.xxxl {
+    //     @include mx.ml-mr(calc((v.$sb-btn-gap-lg - $btn-border-width) / 2));
+    //   }
+    // }
   } /* .sidebar-bottom */
 } /* #sidebar */
 
