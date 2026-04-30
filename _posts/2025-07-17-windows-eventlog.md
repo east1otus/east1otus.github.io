@@ -20,21 +20,17 @@ Application: 사용자 애플리케이션에서 발생한 이벤트
 이 중 서비스 관련 행위는 주로 System 로그에 기록된다.
 
 ## 서비스 실행/종료
-- 위치: System 로그(Service Control Manager)
-  - 7036: 서비스 상태가 변경됨 (실제 시작/중지 등)
+- 위치: System 로그 (Service Control Manager)
+  - 7036: 서비스 상태가 변경됨 (실제 시작, 중지 등)
   - 7035: 서비스로 제어 코드가 전달됨 (시작, 중지 명령 등)
   - 7040: 서비스 시작 유형 변경됨
   - 7045: 서비스 설치됨
 
 ## 계정 생성/삭제
 - 위치: Security 로그
-  - 4720: 사용자 계정 생성
-    - Audit User Account Management 활성화 필요
-  - 4726: 사용자 계정 삭제
-    - Audit User Account Management 활성화 필요
-  - 4738: 사용자 속성 변경
-    - Audit User Account Management 활성화 필요
-    ⚠️ 속성 변경은 계정 생성 직후 정상적으로 발생할 수도 있다
+  - 4720: 사용자 계정 생성 (Audit User Account Management 활성화 필요)
+  - 4726: 사용자 계정 삭제 (Audit User Account Management 활성화 필요)
+  - 4738: 사용자 속성 변경 (Audit User Account Management 활성화 필요)
 
 ## 프로그램 설치/삭제
 - 위치: Application 로그 (MsiInstaller)
@@ -46,55 +42,48 @@ Application: 사용자 애플리케이션에서 발생한 이벤트
 
 ## 프로세스
 - 위치: Security 로그
-  <i class="fas fa-exclamation-triangle"></i> Audit Process Creation 활성화 필요
-  - 4688: 프로세스 생성
+  - 4688: 프로세스 생성 (Audit Process Creation 활성화 필요)
     - 명령줄 기록 활성화 시 실행 인자 확인 가능
-  - 4689: 프로세스 종료
-  - 4656: 객체 접근을 위한 핸들 요청
-    - 대상 객체에 SACL 설정 필요
+  - 4689: 프로세스 종료 (Audit Process Termination 활성화 필요)
 
 ## 로그인/로그아웃
 - 위치: Security 로그
-  
-  - 4624: 계정 로그온
-  - 4625: 로그온 실패
-  - 4634: 계정 로그오프 (세션 종료 시)
-  - 4647: 명시적 로그아웃
-  - 4672: 특수 권한 로그인
+  - 4624: 계정 로그온 (Audit Logon 활성화 필요)
+  - 4625: 로그온 실패 (Audit Logon 활성화 필요)
+  - 4634: 계정 로그오프 (Audit Logoff 활성화 필요)
+  - 4647: 명시적 로그아웃 (Audit Logoff 활성화 필요)
+  - 4672: 특수 권한 로그인 (Audit Logon 활성화 필요)
 
 ## 원격 접속
 - 위치: Security 로그
-  - 4624(Logon Type 10): 원격 인터랙티브 로그온(RDP 등)
-  - 4778: RDP 세션 연결
-  - 4779: RDP 세션 연결 끊어짐
+  - 4624(Logon Type 10): 원격 인터랙티브 로그온(RDP 등) (Audit Logon 활성화 필요)
+  - 4778: RDP 세션 재연결 (Audit Other Logon/Logoff Events 활성화 필요)
+  - 4779: RDP 세션 연결 끊어짐 (Audit Other Logon/Logoff Events 활성화 필요)
 
 ## 계정 권한 상승
 - 위치: Security 로그
-  - 4670: 사용자 객체 권한 변경
-  - 4672: 특수 권한 로그인 - 관리자 권한으로 로그인 여부 확인
-  - 4732: 보안이 활성화된 로컬 그룹에 멤버 추가
-  - 4733: 보안 그룹에서 제거
+  - 4670: 객체 권한 변경 (Audit Object Access 활성화 필요)
+  - 4672: 특수 권한 로그인 - 관리자 권한으로 로그인 여부 확인 (Audit Logon 활성화 필요)
+  - 4732: 보안이 활성화된 로컬 그룹에 멤버 추가 (Audit Security Group Management 활성화 필요)
+  - 4733: 보안 그룹에서 제거 (Audit Security Group Management 활성화 필요)
 
 ## 패스워드 생성/변경/삭제
 - 위치: Security 로그
-  - 4720: 새로운 사용자 계정 생성 (패스워드 생성도 포함됨)
-  - 4723: 계정 비밀번호 변경 시도
-  - 4724: 계정 비밀번호 재설정 시도
-  - 4726: 계정 제거 (패스워드도 삭제됨)
-  - 4742: 컴퓨터 계정 속성 변경
+  - 4720: 새로운 사용자 계정 생성 (패스워드 생성도 포함됨) (Audit User Account Management 활성화 필요)
+  - 4723: 계정 비밀번호 변경 시도 (Audit User Account Management 활성화 필요)
+  - 4724: 계정 비밀번호 재설정 시도 (Audit User Account Management 활성화 필요)
+  - 4726: 계정 제거 (패스워드도 삭제됨) (Audit User Account Management 활성화 필요)
+  - 4742: 컴퓨터 계정 속성 변경 (Audit User Account Management 활성화 필요)
 
 ## 파워쉘 스크립트 실행
 - 위치: Security 로그
-  - 4688: 프로세스 실행 중 powershell.exe 찾기
+  - 4688: powershell.exe 실행 여부 확인 (Audit Process Creation 활성화 필요)
 - 위치: Microsoft-Windows-PowerShell/Operational 로그
   - 400: PowerShell 엔진 시작
   - 403: PowerShell 엔진 종료
-  - 401: PowerShell 세션 생성
-  - 402: PowerShell 세션 종료
-  - 600: 파이프라인 시작
-  - 627: PowerShell에서 모듈 로드
+  - 600: PowerShell Provider 시작
   - 800: 명령 실행
-  - 4104: 스크립트 블록 로깅 - PowerShell에서 실행된 코드 전체 내용 캡처
+  - 4104: 스크립트 블록 로깅 - PowerShell에서 실행된 코드 전체 내용 캡처 (Script Block Logging 활성화 필요)
 
 ## xp_cmdshell 활성화/사용
 - xp_cmdshell이란

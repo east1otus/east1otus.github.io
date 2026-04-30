@@ -1,7 +1,7 @@
 ---
 title: Raw 디스크 이미지 VM으로 부팅하기
 author: east1otus
-date: 2025-04-18 16:32:00 +0900
+date: 2025-08-20 +0900
 categories: [Digital Forensics, Tips]
 tags: [Tips]
 ---
