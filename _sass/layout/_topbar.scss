@@ -6,7 +6,6 @@
 #topbar-wrapper {
   height: v.$topbar-height;
   background-color: var(--topbar-bg);
-
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -20,8 +19,8 @@
 
 #topbar {
   @extend %btn-color;
+
   position: relative;
-}
 
   #breadcrumb {
     font-size: 1rem;
@@ -69,11 +68,9 @@
   font-weight: 600;
   font-family: sans-serif;
   color: var(--topbar-text-color);
-
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
   max-width: calc(100% - 120px);
   overflow: hidden;
   text-overflow: ellipsis;
