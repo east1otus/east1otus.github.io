@@ -13,6 +13,9 @@
   }
 
   $timeline-width: 4px;
+  $timeline-x: 79px;
+  $year-dot-size: 12px;
+  $post-dot-size: 8px;
 
   %timeline {
     content: '';
@@ -33,7 +36,7 @@
       @extend %timeline;
 
       height: 72px;
-      left: 79px;
+      left: $timeline-x;
       bottom: 16px;
     }
 
@@ -50,9 +53,12 @@
       display: inline-block;
       position: relative;
       border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      left: 21.5px;
+
+      width: $year-dot-size;
+      height: $year-dot-size;
+
+      left: 12px;
+
       border: 3px solid;
       background-color: var(--timeline-year-dot-color);
       border-color: var(--timeline-node-bg);
@@ -84,7 +90,7 @@
         @extend %timeline;
 
         top: 0;
-        left: 77px;
+        left: calc(#{$timeline-x} - 2px);
         height: 3.1rem;
       }
     }
@@ -127,8 +133,8 @@
       display: inline-block;
       position: relative;
       border-radius: 50%;
-      width: 8px;
-      height: 8px;
+      width: $post-dot-size;
+      height: $post-dot-size;
       float: left;
       top: 1.35rem;
       left: 71px;
