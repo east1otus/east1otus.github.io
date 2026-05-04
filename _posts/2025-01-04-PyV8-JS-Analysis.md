@@ -57,7 +57,7 @@ buf = open('malware.js', 'rb').read()
 ctx.eval(buf)
 ```
 
-실행을 하면 WScript 객체가 정의되지 않아 에러가 발생한다. 
+실행을 하면 WScript 객체가 정의되지 않아 에러가 발생한다.  
 
 ![2](/assets/img/2025-01-04-1/2.png){: width="600" .left}  
 <br style="clear: both;"><br>
@@ -85,7 +85,7 @@ ctx.eval(buf)
 - 그리고 PyV8.JSContext(Global())를 통해 Global 객체를 JavaScript의 전역 객체로 지정하면, JavaScript 코드에서 WScript를 사용할 때 MyWScript 객체를 참조하게 된다.
 
 
-이 상태에서 실행하면 이제 WScript.CreateObject 메서드가 없다는 에러가 발생한다.
+이 상태에서 실행하면 이제 WScript.CreateObject 메서드가 없다는 에러가 발생한다.  
 
 ![3](/assets/img/2025-01-04-1/3.png){: width="600" .left}  
 <br style="clear: both;"><br>
@@ -97,7 +97,8 @@ class MyWScript(PyV8.JSClass):
         print '[*] CreateObject'
 ```
 
-그런데 전달된 인자 개수가 함수가 받는 인자 수와 맞지 않다는 에러가 난다.
+그런데 전달된 인자 개수가 함수가 받는 인자 수와 맞지 않다는 에러가 난다.  
+
 ![4](/assets/img/2025-01-04-1/4.png){: width="600" .left}  
 <br style="clear: both;">
 
@@ -107,13 +108,15 @@ class MyWScript(PyV8.JSClass):
 <br>
 
 따라서 다음과 같이 인자를 추가해준다.
+
 ```python
 class MyWScript(PyV8.JSClass):a
     def CreateObject(self, objid):
         print '[*] CreateObject: ', objid
 ```
 
-`CreateObject`가 제대로 호출되어 Dummy 코드 내에 만든 출력문이 잘 나오는 것을 볼 수 있다.
+`CreateObject`가 제대로 호출되어 Dummy 코드 내에 만든 출력문이 잘 나오는 것을 볼 수 있다.  
+
 ![5](/assets/img/2025-01-04-1/5.png){: width="600" .left}  
 <br style="clear: both;"><br>
 
@@ -137,14 +140,14 @@ class MyWScriptShell(PyV8.JSClass):
 ![7](/assets/img/2025-01-04-1/7.png){: width="600" .left}  
 <br style="clear: both;"><br>
 
-그런데 이후 객체 생성만 하고 별도의 에러 메시지 없이 실행이 중단된다. 이는 내부 분기 조건 또는 예외 처리 로직 등에 의해 프로그램이 종료된 것으로 볼 수 있다. 흐름을 이어나가기 위해서 코드를 직접 살펴봐야 했다.
+그런데 이후 객체 생성만 하고 별도의 에러 메시지 없이 실행이 중단된다. 이는 내부 분기 조건 또는 예외 처리 로직 등에 의해 프로그램이 종료된 것으로 볼 수 있다. 흐름을 이어나가기 위해서 코드를 직접 살펴봐야 했다.  
 
 ![8](/assets/img/2025-01-04-1/8.png){: width="600" .left}  
 <br style="clear: both;">
 
 난독화되어 파악이 어렵긴 하지만, 맨 마지막 부분에 `eval` 함수로 뭔가를 실행하는 것을 볼 수 있다. `eval` 함수는 인자로 들어가는 문자열을 코드로 실행하기 때문에 악용되기 쉬운 함수이다.
 
-`eval`에 전달되는 인자를 출력할 수 있다면 어떤 코드가 실행되는 건지 확인이 가능할 텐데, `eval`은 V8 내장 함수이기 때문에 Dummy API 형태로 오버라이딩하기는 어렵다. 이때 `eval`을 `alert`로 수정하고 `alert`를 Dummy 함수로 정의해주어 우회하는 방법이 있다.
+`eval`에 전달되는 인자를 출력할 수 있다면 어떤 코드가 실행되는 건지 확인이 가능할 텐데, `eval`은 V8 내장 함수이기 때문에 Dummy API 형태로 오버라이딩하기는 어렵다. 이때 `eval`을 `alert`로 수정하고 `alert`를 Dummy 함수로 정의해주어 우회하는 방법이 있다.  
 
 ![9](/assets/img/2025-01-04-1/9.png){: width="600" .left}  
 <br style="clear: both;">
@@ -158,16 +161,20 @@ class Global(PyV8.JSClass):
         print a1
 ```
 
-이러면 원래 `eval()`을 통해 실행되는 코드가 출력되며 난독화되어 있던 코드가 모두 해석된 형태로 드러난다.
+이러면 원래 `eval()`을 통해 실행되는 코드가 출력되며 난독화되어 있던 코드가 모두 해석된 형태로 드러난다.  
+
 ![10](/assets/img/2025-01-04-1/10.png){: width="600" .left}  
-<br style="clear: both;">
+<br style="clear: both;">  
+
 이 코드를 deobf.js로 저장하여 분석 대상으로 교체해주었다. 
 
 ![11](/assets/img/2025-01-04-1/11.png){: width="600" .left}  
-<br style="clear: both;">
+<br style="clear: both;">  
+
 코드를 보면, 예외처리가 되어 프로그램이 종료되었음을 파악할 수 있다.
 
-예외 로직에 걸려 종료되지 않도록 다음과 같이 try~catch 문을 주석처리 해주었다.
+예외 로직에 걸려 종료되지 않도록 다음과 같이 try~catch 문을 주석처리 해주었다.  
+
 ![12](/assets/img/2025-01-04-1/12.png){: width="600" .left}  
 <br style="clear: both;">
 
@@ -235,6 +242,7 @@ ctx.enter()
 buf = open('malware_readable.js_', 'rb').read()
 ctx.eval(buf)
 ```
+
 ![14](/assets/img/2025-01-04-1/14.png){: width="600" .left}  
 <br style="clear: both;">
 
