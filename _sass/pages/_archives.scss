@@ -53,12 +53,9 @@
       display: inline-block;
       position: relative;
       border-radius: 50%;
-
       width: $year-dot-size;
       height: $year-dot-size;
-
       left: 12px;
-
       border: 3px solid;
       background-color: var(--timeline-year-dot-color);
       border-color: var(--timeline-node-bg);
