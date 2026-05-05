@@ -35,7 +35,6 @@ tags: [Digital Forensics, Linux, BoB]
   ![1](/assets/img/2025-07-23-1/1.png){: width="600" .left}
   <div style="clear: both;"></div>
 
-각 파일들에 대해서? 조사
 
 ### /proc 하위 파일
 
@@ -66,7 +65,7 @@ tags: [Digital Forensics, Linux, BoB]
 
 #### consoles
 
-![2](/assets/img/2025-07-23-1/2.png){: width="600" .left}
+![5](/assets/img/2025-07-23-1/5.png){: width="600" .left}
 <div style="clear: both;"></div>
 
 - 시스템에서 현재 등록된 콘솔 장치에 대한 정보
@@ -75,7 +74,7 @@ tags: [Digital Forensics, Linux, BoB]
 
 #### cpuinfo
 
-![2](/assets/img/2025-07-23-1/2.png){: width="600" .left}
+![6](/assets/img/2025-07-23-1/6.png){: width="600" .left}
 <div style="clear: both;"></div>
 
 - 시스템의 CPU 정보 제공
@@ -83,18 +82,22 @@ tags: [Digital Forensics, Linux, BoB]
 - cpu family: 시스템에 있는 프로세서의 유형
 - model name: 프로세서의 모델명
 - cpu MHz: 프로세서의 속도
-- cache size: 프로세서에 사용 가능한 L2 캐시의 양
+- cache size: 프로세서에 사용 가능한 캐시 크기
 - siblings: 동일한 물리적 CPU에 있는 형제 CPU 수
 - flags: 프로세서에 대한 여러 특징들 정의
 
 #### crypto
 
-![2](/assets/img/2025-07-23-1/2.png){: width="600" .left}
+![7](/assets/img/2025-07-23-1/7.png){: width="600" .left}
 <div style="clear: both;"></div>
 
 - 리눅스 커널에 등록된 암호화 알고리즘, 드라이버, 모듈 등의 정보 제공
 
 #### devices
+
+![8](/assets/img/2025-07-23-1/8.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 등록된 문자 장치와 블록 장치 목록
 - 각 장치의 주 번호(major number), 이름 포함
 
@@ -153,7 +156,7 @@ tags: [Digital Forensics, Linux, BoB]
 
 #### kmsg (root 권한 필요)
 - 커널 로그 버퍼에 접근하기 위한 인터페이스
-- 메시지들은 이후 /sbin/klogd나 bin/dmesg 등 다른 프로그램이 읽어감
+- 메시지들은 이후 /sbin/klogd나 /bin/dmesg 등 다른 프로그램이 읽어감
 
 #### kpagecgroup (root 권한 필요)
 - 각 물리 메모리 페이지가 어떤 cgroup에 속하는지 확인 가능
@@ -290,8 +293,94 @@ MANDATORY: 강제적 잠금 - 잠금 동안 다른 접근이 제한됨
   - pgpgin, pgpgout: 디스크와 메모리 간 데이터 입출력량(kB 단위)
   - pgalloc_*, pgfree: 페이지 할당 및 해제 수
 
-  #### zoneinfo
-  - 메모리 zone별 상태 및 통계 정보
+#### zoneinfo
+- 메모리 zone별 상태 및 통계 정보
 
-  ### /porc 하위 디렉터리
-  #### 프로세스 디렉터리
+### /proc 하위 디렉터리
+#### 프로세스 디렉터리
+- 숫자(PID) 이름인 디렉터리
+- 해당 프로세스 정보를 포함함
+- 프로세스 종료 시 디렉터리도 함께 사라짐
+
+- 디렉터리 내 주요 파일
+  - cmdline: 프로세스 실행 시 사용된 명령행 인자
+  - cwd: 현재 작업 디렉터리에 대한 심볼릭 링크
+  - environ: 환경 변수 목록
+  - exe: 실행 파일에 대한 심볼릭 링크
+  - fd: 프로세스가 열고 있는 파일 디스크립터 목록
+  - maps: 가상 메모리 매핑 정보
+  - mem: 프로세스의 가상 메모리 이미지 (권한 필요)
+  - root: 프로세스 기준 루트 디렉터리 링크
+  - stat: 프로세스 상태 및 통계 정보
+  - statm: 메모리 사용 통계 정보
+  - status: 사람이 읽기 쉬운 형태의 프로세스 상태 정보
+
+#### acpi
+- ACPI(Advanced Configuration and Power Interface) 관련 정보 제공
+- wakeup: 시스템을 깨울 수 있는 장치 및 wake-up 설정 정보
+
+#### asound
+- ALSA(Advanced Linux Sound Architecture) 관련 정보 제공
+
+#### bus
+- 시스템에서 사용 가능한 다양한 bus 정보 제공
+- 하위 디렉터리와 파일은 시스템에 연결된 장치에 따라 달라짐
+
+#### driver
+- 커널 드라이버 관련 정보 제공
+- rtc: 시스템의 RTC(Real-Time Clock) 드라이버 정보 출력
+
+#### dynamic_debug
+- 커널 동적 디버깅 기능을 위한 인터페이스
+- control: 동적 디버깅이 가능한 커널 메시지 목록 및 설정 인터페이스 제공
+
+#### fs
+- 커널에 등록된 파일 시스템 관련 정보 제공
+- 파일 시스템 드라이버 및 커널 모듈 관련 정보
+
+#### irq
+- 시스템의 IRQ(Interrupt Request) 관련 정보 제공
+- IRQ affinity 설정을 통해 특정 IRQ를 처리할 CPU를 제어할 수 있음
+- 각 IRQ는 자체 디렉터리를 가지며 IRQ별 개별 설정 가능
+
+#### mpt
+- MPT Fusion 드라이버에서 생성됨
+- MPT 기반 스토리지 컨트롤러의 상태 및 정보 제공
+
+#### pressure
+- PSI(Pressure Stall Information)를 통해 시스템 리소스 부족으로 인한 지연 상태를 모니터링
+- /cpu: CPU 리소스 부족으로 작업이 대기한 시간 정보
+- /io: I/O 작업 대기로 인해 지연된 시간 정보
+- /memory: 메모리 부족으로 인해 작업이 대기한 시간 정보
+
+#### sys
+- 커널 및 시스템 설정 정보를 제공하는 인터페이스
+- 시스템 관리자가 커널 파라미터를 런타임에 조회 및 변경할 수 있음
+
+#### sysvipc
+- System V IPC(System V 계열 UNIX의 프로세스 간 통신 방식) 관련 정보 제공
+- 메시지 큐(msg), 세마포어(sem), 공유 메모리(shm) 등의 IPC 객체 상태 및 정보 포함
+
+#### tty
+- 시스템의 tty 장치 및 tty 드라이버 관련 정보 제공
+- /driver/serial: 직렬 tty 장치의 상태 및 사용 통계 정보
+- ldiscs: 등록된 line discipline 정보
+
+## /proc 하위 심볼릭 링크
+
+#### mounts → self/mounts
+- 시스템의 마운트 정보를 보여줌
+
+#### net → self/net
+- arp: 커널의 ARP 테이블 정보
+- dev: 시스템에 구성된 다양한 네트워크 장치를 송수신 통계와 함께 나열
+  - 각 인터페이스가 송수신한 바이트 수, 언바운드/아웃바운드 패킷 수, 감지된 오류 수, 삭제된 패킷 수 등
+- dev_mcast: 각 네트워크 장치가 수신 중인 Layer 2 멀티캐스트 그룹 정보
+
+#### self → <pid>
+- 현재 실행 중인 프로세스의 PID 디렉터리를 가리키는 링크
+- 프로세스가 자신의 PID를 직접 알지 않아도 자기 정보에 접근 가능
+
+#### thread-self → <pid>/task/<tid>
+- 현재 실행 중인 스레드의 task 디렉터리를 가리키는 링크
+- proc 파일 시스템에 접근한 스레드 자신을 참조
