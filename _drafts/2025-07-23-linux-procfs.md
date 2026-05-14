@@ -102,24 +102,48 @@ tags: [Digital Forensics, Linux, BoB]
 - 각 장치의 주 번호(major number), 이름 포함
 
 #### diskstats
+
+![9](/assets/img/2025-07-23-1/9.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 시스템의 블록 디바이스 I/O 통계 정보
 
 #### dma
+
+![10](/assets/img/2025-07-23-1/10.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 사용 중인 ISA DMA 채널 목록
 
 #### execdomains
+
+![11](/assets/img/2025-07-23-1/11.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 리눅스 커널에서 지원하는 실행 도메인과 각 도메인의 personality 정보
 
 #### fb
+
+![12](/assets/img/2025-07-23-1/12.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 프레임 버퍼 장치 번호와 해당 장치를 제어하는 드라이버 정보
 
 #### filesystems
+
+![13](/assets/img/2025-07-23-1/13.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 커널에서 현재 지원하는 파일시스템 유형 목록
 - 1번째 열: 블록 장치 기반 파일시스템인지 여부
   - nodev: 장치 파일을 사용하지 않는 파일시스템
 - 2번째 열: 파일시스템 이름
 
 #### interrupts
+
+![14](/assets/img/2025-07-23-1/14.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 각 IRQ가 CPU별로 처리된 횟수를 제공한다.
 - 각 열 항목: IRQ | CPU0, CPU1, ... | Controller | Flags | Name
   - IRQ: IRQ 번호
@@ -129,15 +153,27 @@ tags: [Digital Forensics, Linux, BoB]
   - Name: 해당 IRQ에 연결된 장치 또는 드라이버 이름
 
 #### iomem
+
+![15](/assets/img/2025-07-23-1/15.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 시스템 물리 메모리 주소 공간의 매핑 정보
 - 1번째 열: 메모리 주소 범위
 - 2번째 열: 해당 주소 영역의 용도 또는 할당된 장치/기능
   - RAM 영역, 커널이 사용하는 메모리, 장치에 할당된 메모리 주소 영역(MMIO) 등을 표시한다
 
 #### ioports
+
+![16](/assets/img/2025-07-23-1/16.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 장치와의 입출력 통신에 사용되는 등록된 I/O 포트 주소 범위 목록
 
 #### kallsyms
+
+![17](/assets/img/2025-07-23-1/17.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 커널의 심볼 테이블 정보
 - 커널 내 함수 및 변수 이름에 대한 필수 정보 포함
   - 메모리 내의 심볼 주소
@@ -145,29 +181,56 @@ tags: [Digital Forensics, Linux, BoB]
   - 심볼의 이름
 
 #### kcore (root 권한 필요)
+
+![18](/assets/img/2025-07-23-1/18.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 시스템 물리 메모리의 ELF 형식 이미지에 접근할 수 있는 파일
 
 #### keys
+
+![19](/assets/img/2025-07-23-1/19.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 커널의 키 관리 기능에 대한 인터페이스 제공
 
 #### key-users
+
+![20](/assets/img/2025-07-23-1/20.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - UID별 키 사용 통계 정보
 - UID, 보유한 키 수, 할당된 키 수, 생성된 키 수, 갱신/무효화된 키 수 등을 포함
 
 #### kmsg (root 권한 필요)
+
+![21](/assets/img/2025-07-23-1/21.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 커널 로그 버퍼에 접근하기 위한 인터페이스
 - 메시지들은 이후 /sbin/klogd나 /bin/dmesg 등 다른 프로그램이 읽어감
 
 #### kpagecgroup (root 권한 필요)
+
+![22](/assets/img/2025-07-23-1/22.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 각 물리 메모리 페이지가 어떤 cgroup에 속하는지 확인 가능
 
 #### kpagecount (root 권한 필요)
-(사진고쳐야함)
+
+![23](/assets/img/2025-07-23-1/23.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 각 물리 메모리 페이지의 참조 횟수 정보를 제공
 - 각 항목은 하나의 물리 메모리 페이지를 나타냄
 - 값은 해당 페이지의 참조 횟수(reference count)를 의미
 
 #### loadavg
+
+![24](/assets/img/2025-07-23-1/24.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 시간에 따른 CPU 및 I/O 부하 평균
 - uptime 등에서 사용됨
 - 1-3열: 지난 1, 5, 15분 동안의 부하 평균값
@@ -175,6 +238,10 @@ tags: [Digital Forensics, Linux, BoB]
 - 5열: 사용된 마지막 프로세스 PID
 
 #### locks
+
+![25](/assets/img/2025-07-23-1/25.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 커널에 의해 잠겨 있는 파일 표시
 - FLOCK: flock 시스템 호출 기반의 파일 잠금  
 ↔  
@@ -184,6 +251,11 @@ POSIX: fcntl/lockf 기반의 POSIX 파일 잠금
 MANDATORY: 강제적 잠금 - 잠금 동안 다른 접근이 제한됨
 
 #### meminfo
+
+![26](/assets/img/2025-07-23-1/26.png){: width="600" .left}
+![27](/assets/img/2025-07-23-1/27.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - RAM 사용량에 대한 유용한 정보들
 - free, top 등이 참조
 - MemTotal / MemFree: 총 / 시스템에서 사용되지 않은 물리적 RAM 양
@@ -203,9 +275,17 @@ MANDATORY: 강제적 잠금 - 잠금 동안 다른 접근이 제한됨
 - Hugepagesize: 각 huge page의 크기
 
 #### misc
+
+![28](/assets/img/2025-07-23-1/28.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - misc(major 10)에 등록된 문자 장치 드라이버 목록
 
 #### modules
+
+![29](/assets/img/2025-07-23-1/29.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 커널에 로드된 모듈 목록
 - 1열: 모듈 이름
 - 2열: 모듈의 메모리 크기
@@ -215,13 +295,25 @@ MANDATORY: 강제적 잠금 - 잠금 동안 다른 접근이 제한됨
 - 6열: 모듈이 로드된 메모리 주소
 
 #### mtrr (root 권한 필요)
+
+![30](/assets/img/2025-07-23-1/30.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 현재 설정된 MTRR(Memory Type Range Registers) 정보
 
 #### pagetypeinfo (root 권한 필요)
+
+![31](/assets/img/2025-07-23-1/31.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 페이지 유형별 메모리 사용 상태 정보
 - 각 페이지의 migration type(이동 가능 여부), 페이지 분포 등
 
 #### partitions
+
+![32](/assets/img/2025-07-23-1/32.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 디스크 파티션 정보
 - major: 해당 파티션이 속한 장치의 주 번호
 - minor: 해당 파티션이 속한 장치의 부 번호
@@ -229,10 +321,18 @@ MANDATORY: 강제적 잠금 - 잠금 동안 다른 접근이 제한됨
 - name: 파티션 이름
 
 #### schedstat
+
+![33](/assets/img/2025-07-23-1/33.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - CPU 스케줄링 통계 정보
 - 시스템 성능 분석이나 스케줄러 동작 방식 파악 등에 이용 가능
 
 #### slabinfo (root 권한 필요)
+
+![34](/assets/img/2025-07-23-1/34.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 슬랩 캐시별 메모리 사용 정보
 - name: 슬랩 캐시 이름
 - active_objs: 현재 사용 중인 객체 수
@@ -252,14 +352,24 @@ MANDATORY: 강제적 잠금 - 잠금 동안 다른 접근이 제한됨
   - sharedavail: 공유 가능한 객체 수
 
 #### softirqs
+
+![35](/assets/img/2025-07-23-1/35.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - softirq(소프트웨어 기반 인터럽트 처리 메커니즘)의 카운터 정보
 - 각 행: softirq 유형
 - 각 열: 각 CPU에서 해당 softirq가 처리된 횟수
 
 #### stat
+
+
+
 - 시스템 부팅 이후의 CPU, 프로세스, 인터럽트 등의 통계 정보
 
 #### swaps
+
+
+
 - 활성화된 스왑 영역 정보
 - priority 값이 높을수록 우선적으로 사용
 
@@ -267,23 +377,46 @@ MANDATORY: 강제적 잠금 - 잠금 동안 다른 접근이 제한됨
 - echo를 통해 명령 전달 가능
   - /proc/sys/kernel/sysrq 값이 0이 아닐 때 동작
 - read 지원되지 않음
+  ![36](/assets/img/2025-07-23-1/36.png){: width="600" .left}
+  <div style="clear: both;"></div>
 - write 시 SysRq 기능을 통해 시스템 제어 명령을 실행 가능
 
 #### timer-list (root 권한 필요)
+
+![37](/assets/img/2025-07-23-1/37.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 현재 커널에서 활성화된 타이머와 타이머 서브시스템 상태 정보
 
 #### uptime
+
+![38](/assets/img/2025-07-23-1/38.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 시스템이 마지막으로 재시작된 이후 얼마나 오래 켜져 있었는지에 대한 정보
 - 첫번째 값: 시스템이 가동된 총 시간
 - 두번째 값: 전체 CPU가 유휴 상태였던 시간의 누적값
 
 #### version
+
+![39](/assets/img/2025-07-23-1/39.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 사용 중인 Linux 커널 버전, 빌드 정보(gcc 버전) 등
 
 #### vmallocinfo (root 권한 필요)
+
+![40](/assets/img/2025-07-23-1/40.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 커널이 vmalloc을 통해 할당한 가상 메모리 영역에 대한 정보
 
 #### vmstat
+
+![41](/assets/img/2025-07-23-1/41.png){: width="600" .left}
+![42](/assets/img/2025-07-23-1/42.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 커널 메모리 및 가상 메모리 서브시스템의 통계 정보
 - 메모리 관리, 페이지 교체, I/O 요청 등의 상태를 확인 가능
 - 주요 필드
@@ -294,10 +427,23 @@ MANDATORY: 강제적 잠금 - 잠금 동안 다른 접근이 제한됨
   - pgalloc_*, pgfree: 페이지 할당 및 해제 수
 
 #### zoneinfo
+
+![43](/assets/img/2025-07-23-1/43.png){: width="600" .left}
+![44](/assets/img/2025-07-23-1/44.png){: width="600" .left}
+![45](/assets/img/2025-07-23-1/45.png){: width="600" .left}
+![46](/assets/img/2025-07-23-1/46.png){: width="600" .left}
+![47](/assets/img/2025-07-23-1/47.png){: width="600" .left}
+![48](/assets/img/2025-07-23-1/48.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 메모리 zone별 상태 및 통계 정보
 
 ### /proc 하위 디렉터리
 #### 프로세스 디렉터리
+
+![49](/assets/img/2025-07-23-1/49.png){: width="600" .left}
+<div style="clear: both;"></div>
+
 - 숫자(PID) 이름인 디렉터리
 - 해당 프로세스 정보를 포함함
 - 프로세스 종료 시 디렉터리도 함께 사라짐
